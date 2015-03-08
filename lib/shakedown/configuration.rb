@@ -1,13 +1,14 @@
 module Shakedown
   class Configuration
     attr_accessor :host, :namespace
-    attr_reader :start, :stop
 
     def initialize
       @host = "http://localhost:1234"
       @namespace = nil
-      @start = lambda {}
-      @stop = lambda {}
+      @start  = lambda {}
+      @stop   = lambda {}
+      @before = lambda {}
+      @after  = lambda {}
     end
 
     def start(&block)
@@ -23,7 +24,23 @@ module Shakedown
     end
 
     def stop!
-      @start.call()
+      @stop.call()
+    end
+
+    def before(&block)
+      @before = block
+    end
+
+    def before!
+      @before.call()
+    end
+
+    def after(&block)
+      @after = block
+    end
+
+    def after!
+      @after.call()
     end
   end
 end

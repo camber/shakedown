@@ -41,7 +41,7 @@ module Shakedown
     end
 
     def uri
-      URI.parse(@url)
+      URI.parse(url)
     end
 
     def http

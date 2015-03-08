@@ -3,11 +3,11 @@ require "uri"
 require "json"
 require "formatador"
 
-require "shakedown/version"
-require "shakedown/configuration"
-require "shakedown/errors"
-require "shakedown/runner"
-require "shakedown/sequence"
+require_relative "./shakedown/version"
+require_relative "./shakedown/configuration"
+require_relative "./shakedown/errors"
+require_relative "./shakedown/runner"
+require_relative "./shakedown/sequence"
 
 module Shakedown
   def self.configure
@@ -23,7 +23,9 @@ module Shakedown
 
     begin
       config.start!
+      config.before!
       sequence.run!
+      config.after!
     ensure
       config.stop!
     end
