@@ -6,7 +6,6 @@ require "colored"
 require_relative "./shakedown/version"
 require_relative "./shakedown/configuration"
 require_relative "./shakedown/errors"
-require_relative "./shakedown/runner"
 require_relative "./shakedown/sequence"
 
 module Shakedown
