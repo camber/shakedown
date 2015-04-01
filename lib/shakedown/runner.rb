@@ -30,13 +30,13 @@ module Shakedown
     end
 
     def print_status(status, update=false)
-      message = "[#{COLORS[status]}]#{SYMBOLS[status]} #{type.to_s.upcase.ljust(8)} #{url}[/]"
+      message = " #{SYMBOLS[status]} #{type.to_s.upcase.ljust(7)} #{url}".send(COLORS[status])
 
       if update
-        Formatador.redisplay(message)
-        puts
+        puts message
       else
-        Formatador.display(message)
+        print message + "\r"
+        $stdout.flush
       end
     end
 

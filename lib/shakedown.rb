@@ -1,7 +1,7 @@
 require "net/http"
 require "uri"
 require "json"
-require "formatador"
+require "colored"
 
 require_relative "./shakedown/version"
 require_relative "./shakedown/configuration"
